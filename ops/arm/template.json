@@ -6,6 +6,14 @@
             "defaultValue": "DevOps-admin",
             "type": "SecureString"
         },
+        "vnet_addressPrefixes": {
+            "defaultValue": "192.168.0.0/16",
+            "type": "String"
+        },
+        "subnets_addressPrefixes": {
+            "defaultValue": "192.168.200.0/24",
+            "type": "String"
+        },
         "availabilitySets_availability_iis_name": {
             "defaultValue": "availability-iis",
             "type": "String"
@@ -285,7 +293,7 @@
                         "etag": "W/\"b8b35ca8-6428-439c-b1cc-ccfc6109f3d0\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "192.169.201.4",
+                            "privateIPAddress": "",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_iis_server_name'))]"
@@ -328,7 +336,7 @@
                         "etag": "W/\"4c01dabf-1b25-444c-bdac-6e1d33ce6c6e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "192.169.201.5",
+                            "privateIPAddress": "",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_sql_server_name'))]"
@@ -490,7 +498,7 @@
             "properties": {
                 "addressSpace": {
                     "addressPrefixes": [
-                        "192.169.0.0/16"
+                        "[parameters('vnet_addressPrefixes')]"
                     ]
                 },
                 "subnets": [
@@ -500,7 +508,7 @@
                         "etag": "W/\"aa89a33e-f4d9-467c-9f8f-4382d475bdf2\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "addressPrefix": "192.169.201.0/24",
+                            "addressPrefix": "[parameters('subnets_addressPrefixes')]",
                             "ipConfigurations": [
                                 {
                                     "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_iis_server79_name')), '/ipConfigurations/ipconfig1')]"
