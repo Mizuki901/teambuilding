@@ -6,7 +6,7 @@ using TeamBuilding.DBInterfaces;
 
 namespace TeamBuilding.Database
 {
-    public class DBAccess: ILogin, IResistTheme, IListupTheme
+    public class DBAccess: ILogin, IResistTheme, IListupTheme, IResistPartisipate
     {
         string ConnectionString
         {
@@ -16,8 +16,12 @@ namespace TeamBuilding.Database
             }
         }
 
+        /// <summary>ユーザ登録</summary>
+        /// <param name="userId">ユーザID</param>
+        /// <returns></returns>
         public bool LoginUser(string userId)
         {
+            if (userId == null) throw new ArgumentNullException();
             bool containsUser = false;
             using (var context = new DataTeamBuildingDataContext(ConnectionString))
             {
@@ -42,6 +46,8 @@ namespace TeamBuilding.Database
 
         public bool RegistTheme(string userId,string themeContent)
         {
+            if (userId == null) throw new ArgumentNullException();
+            if (themeContent == null) throw new ArgumentNullException();
             bool exists = false;
             bool resisted = false;
             using (var context = new DataTeamBuildingDataContext(ConnectionString))
@@ -60,21 +66,21 @@ namespace TeamBuilding.Database
                         context.Theme.InsertOnSubmit(
                             new Theme() { OwnerUserId = userId, Content = themeContent }
                         );
+                        context.SubmitChanges();
+                        resisted = true;
                     }
                     else
                     {
-                        t.First().Content = themeContent;
+                        //t.First().Content = themeContent;
                     }
-                    context.SubmitChanges();
-                    resisted = true;
                 }
             }
             return resisted;
         }
 
-        public IEnumerable<Tuple<string,string>> ListupTheme()
+        public IList<Tuple<string,string>> ListupTheme()
         {
-            IEnumerable<Tuple<string, string>> list = Enumerable.Empty<Tuple<string, string>>();
+            IList<Tuple<string, string>> list = Enumerable.Empty<Tuple<string, string>>().ToList();
             using (var context = new DataTeamBuildingDataContext(ConnectionString))
             {
                 if (context.DatabaseExists()) context.CreateDatabase();
@@ -89,7 +95,40 @@ namespace TeamBuilding.Database
             }
             return list;
         }
+
+        public bool ResistPartisipate(string userId,string themeId)
+        {
+            if (userId == null) throw new ArgumentNullException();
+            if (themeId == null) throw new ArgumentNullException();
+
+            bool exists = false;
+            bool resisted = false;
+            using (var context = new DataTeamBuildingDataContext(ConnectionString))
+            {
+                if (context.DatabaseExists()) context.CreateDatabase();
+                using (var connection = context.Connection)
+                {
+                    connection.Open();
+
+                    var ut = from userTheme in context.UserTheme
+                            where userTheme.UserId == userId
+                            select userTheme;
+                    exists = ut.Count() > 0;
+                    if (!exists)
+                    {
+                        context.UserTheme.InsertOnSubmit(
+                            new UserTheme() { UserId = userId, OwnerUserId = themeId }
+                        );
+                    }
+                    else
+                    {
+                        ut.First().OwnerUserId = themeId;
+                    }
+                    context.SubmitChanges();
+                    resisted = true;
+                }
+            }
+            return resisted;
+        }
     }
-
-
 }

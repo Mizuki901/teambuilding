@@ -13,7 +13,7 @@
   <Table Name="" Member="UserTheme">
     <Type Name="UserTheme">
       <Column Name="UserId" Type="System.String" DbType="Varchar(MAX)" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="OwnerUserId" Storage="_ThemeId" Type="System.String" DbType="Varchar(MAX)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OwnerUserId" Storage="_ThemeId" Type="System.String" DbType="Varchar(MAX)" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

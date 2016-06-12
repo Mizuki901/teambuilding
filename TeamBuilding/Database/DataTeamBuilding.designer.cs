@@ -282,7 +282,7 @@ namespace TeamBuilding.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThemeId", DbType="Varchar(MAX)", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThemeId", DbType="Varchar(MAX)", CanBeNull=false)]
 		public string OwnerUserId
 		{
 			get
