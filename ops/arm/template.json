@@ -2,6 +2,10 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "adminPassword": {
+            "defaultValue": "DevOps-admin",
+            "type": "SecureString"
+        },
         "availabilitySets_availability_iis_name": {
             "defaultValue": "availability-iis",
             "type": "String"
@@ -50,55 +54,51 @@
             "defaultValue": "private-network",
             "type": "String"
         },
-        "storageAccounts_exportbase1267_name": {
-            "defaultValue": "exportbase1267",
-            "type": "String"
-        },
         "storageAccounts_exportbase4018_name": {
             "defaultValue": "exportbase4018",
             "type": "String"
         },
         "loadBalancers_loadbalancer_id": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/loadBalancers/loadbalancer/frontendIPConfigurations/loadbalancerLoadBalancerFrontEnd",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/loadBalancers/loadbalancer/frontendIPConfigurations/LoadBalancerFrontEnd",
             "type": "String"
         },
         "loadBalancers_loadbalancer_id_1": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/loadBalancers/loadbalancer/backendAddressPools/backend-pool",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/loadBalancers/loadbalancer/backendAddressPools/backend-pool",
             "type": "String"
         },
         "networkInterfaces_iis_server79_id": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkInterfaces/iis-server79/ipConfigurations/ipconfig1",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkInterfaces/iis-server79/ipConfigurations/ipconfig1",
             "type": "String"
         },
         "networkInterfaces_sql_server679_id": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkInterfaces/sql-server679/ipConfigurations/ipconfig1",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkInterfaces/sql-server679/ipConfigurations/ipconfig1",
             "type": "String"
         },
         "networkSecurityGroups_iis_server_secure_id": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkSecurityGroups/iis-server-secure/securityRules/default-allow-http",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkSecurityGroups/iis-server-secure/securityRules/default-allow-http",
             "type": "String"
         },
         "networkSecurityGroups_iis_server_secure_id_1": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkSecurityGroups/iis-server-secure/securityRules/default-allow-rdp",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkSecurityGroups/iis-server-secure/securityRules/default-allow-rdp",
             "type": "String"
         },
         "networkSecurityGroups_sql_server_id": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkSecurityGroups/sql-server/securityRules/default-allow-sql",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkSecurityGroups/sql-server/securityRules/default-allow-sql",
             "type": "String"
         },
         "networkSecurityGroups_sql_server_id_1": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkSecurityGroups/sql-server/securityRules/default-allow-rdp",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkSecurityGroups/sql-server/securityRules/default-allow-rdp",
             "type": "String"
         },
         "virtualNetworks_private_network_id": {
-            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/virtualNetworks/private-network/subnets/develop-front",
+            "defaultValue": "/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/virtualNetworks/private-network/subnets/develop-front",
             "type": "String"
         }
     },
     "variables": {},
     "resources": [
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Compute/availabilitySets/availability-iis' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Compute/availabilitySets/availability-iis' から一般化されました。",
             "type": "Microsoft.Compute/availabilitySets",
             "name": "[parameters('availabilitySets_availability_iis_name')]",
             "apiVersion": "2015-06-15",
@@ -110,7 +110,7 @@
             "dependsOn": []
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Compute/virtualMachines/iis-server' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Compute/virtualMachines/iis-server' から一般化されました。",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('virtualMachines_iis_server_name')]",
             "apiVersion": "2015-06-15",
@@ -130,7 +130,6 @@
                         "version": "latest"
                     },
                     "osDisk": {
-                        "osType": "Windows",
                         "name": "[parameters('virtualMachines_iis_server_name')]",
                         "createOption": "FromImage",
                         "vhd": {
@@ -143,6 +142,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_iis_server_name')]",
                     "adminUsername": "DevOps-admin",
+                    "adminPassword": "[parameters('adminPassword')]",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
@@ -164,7 +164,7 @@
             ]
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Compute/virtualMachines/sql-server' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Compute/virtualMachines/sql-server' から一般化されました。",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('virtualMachines_sql_server_name')]",
             "apiVersion": "2015-06-15",
@@ -181,7 +181,6 @@
                         "version": "latest"
                     },
                     "osDisk": {
-                        "osType": "Windows",
                         "name": "[parameters('virtualMachines_sql_server_name')]",
                         "createOption": "FromImage",
                         "vhd": {
@@ -205,6 +204,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_sql_server_name')]",
                     "adminUsername": "DevOps-admin",
+                    "adminPassword": "[parameters('adminPassword')]",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
@@ -225,7 +225,7 @@
             ]
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/loadBalancers/loadbalancer' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/loadBalancers/loadbalancer' から一般化されました。",
             "type": "Microsoft.Network/loadBalancers",
             "name": "[parameters('loadBalancers_loadbalancer_name')]",
             "apiVersion": "2016-03-30",
@@ -235,7 +235,7 @@
                     {
                         "name": "[concat(parameters('loadBalancers_loadbalancer_name'),'LoadBalancerFrontEnd')]",
                         "id": "[parameters('loadBalancers_loadbalancer_id')]",
-                        "etag": "W/\"c7e12668-5d4c-46b5-9094-8d11e743659f\"",
+                        "etag": "W/\"589af38f-a1c8-4ec2-b536-8660fe796978\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "privateIPAllocationMethod": "Dynamic",
@@ -249,9 +249,14 @@
                     {
                         "name": "backend-pool",
                         "id": "[parameters('loadBalancers_loadbalancer_id_1')]",
-                        "etag": "W/\"c7e12668-5d4c-46b5-9094-8d11e743659f\"",
+                        "etag": "W/\"589af38f-a1c8-4ec2-b536-8660fe796978\"",
                         "properties": {
-                            "provisioningState": "Succeeded"
+                            "provisioningState": "Succeeded",
+                            "backendIPConfigurations": [
+                                {
+                                    "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_iis_server79_name')), '/ipConfigurations/ipconfig1')]"
+                                }
+                            ]
                         }
                     }
                 ],
@@ -262,11 +267,12 @@
                 "inboundNatPools": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_loadbalancer_name'))]"
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_loadbalancer_name'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_iis_server79_name'))]"
             ]
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkInterfaces/iis-server79' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkInterfaces/iis-server79' から一般化されました。",
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[parameters('networkInterfaces_iis_server79_name')]",
             "apiVersion": "2016-03-30",
@@ -276,10 +282,10 @@
                     {
                         "name": "ipconfig1",
                         "id": "[parameters('networkInterfaces_iis_server79_id')]",
-                        "etag": "W/\"75c2b448-ccd8-4bf6-90ac-b10338d2c87b\"",
+                        "etag": "W/\"b8b35ca8-6428-439c-b1cc-ccfc6109f3d0\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "192.169.201.5",
+                            "privateIPAddress": "192.169.201.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_iis_server_name'))]"
@@ -295,7 +301,7 @@
                 "dnsSettings": {
                     "dnsServers": [],
                     "appliedDnsServers": [],
-                    "internalDomainNameSuffix": "e1wfkv24vhiefawvohlta4reib.mx.internal.cloudapp.net"
+                    "internalDomainNameSuffix": "n4y0mbbj1gqetjxmr4af3ukagc.mx.internal.cloudapp.net"
                 },
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
@@ -309,7 +315,7 @@
             ]
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkInterfaces/sql-server679' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkInterfaces/sql-server679' から一般化されました。",
             "type": "Microsoft.Network/networkInterfaces",
             "name": "[parameters('networkInterfaces_sql_server679_name')]",
             "apiVersion": "2016-03-30",
@@ -319,10 +325,10 @@
                     {
                         "name": "ipconfig1",
                         "id": "[parameters('networkInterfaces_sql_server679_id')]",
-                        "etag": "W/\"d2c2a7dd-a1aa-4d3f-8d5b-77878f0047c6\"",
+                        "etag": "W/\"4c01dabf-1b25-444c-bdac-6e1d33ce6c6e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "192.169.201.4",
+                            "privateIPAddress": "192.169.201.5",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
                                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_sql_server_name'))]"
@@ -338,7 +344,7 @@
                 "dnsSettings": {
                     "dnsServers": [],
                     "appliedDnsServers": [],
-                    "internalDomainNameSuffix": "e1wfkv24vhiefawvohlta4reib.mx.internal.cloudapp.net"
+                    "internalDomainNameSuffix": "n4y0mbbj1gqetjxmr4af3ukagc.mx.internal.cloudapp.net"
                 },
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
@@ -352,7 +358,7 @@
             ]
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkSecurityGroups/iis-server-secure' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkSecurityGroups/iis-server-secure' から一般化されました。",
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[parameters('networkSecurityGroups_iis_server_secure_name')]",
             "apiVersion": "2016-03-30",
@@ -362,7 +368,7 @@
                     {
                         "name": "default-allow-http",
                         "id": "[parameters('networkSecurityGroups_iis_server_secure_id')]",
-                        "etag": "W/\"438167a4-6fd9-4bfb-a5cc-4e0b3376fed0\"",
+                        "etag": "W/\"5749a47f-e68d-4fac-8fb6-37ee9941af4e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "protocol": "*",
@@ -378,7 +384,7 @@
                     {
                         "name": "default-allow-rdp",
                         "id": "[parameters('networkSecurityGroups_iis_server_secure_id_1')]",
-                        "etag": "W/\"438167a4-6fd9-4bfb-a5cc-4e0b3376fed0\"",
+                        "etag": "W/\"5749a47f-e68d-4fac-8fb6-37ee9941af4e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "protocol": "*",
@@ -396,7 +402,7 @@
             "dependsOn": []
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/networkSecurityGroups/sql-server' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/networkSecurityGroups/sql-server' から一般化されました。",
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[parameters('networkSecurityGroups_sql_server_name')]",
             "apiVersion": "2016-03-30",
@@ -406,7 +412,7 @@
                     {
                         "name": "default-allow-sql",
                         "id": "[parameters('networkSecurityGroups_sql_server_id')]",
-                        "etag": "W/\"32a66630-64e0-45c5-901d-4c4e95951d80\"",
+                        "etag": "W/\"c1b60994-649d-4b2e-b6d1-ac0af695718e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "protocol": "*",
@@ -422,7 +428,7 @@
                     {
                         "name": "default-allow-rdp",
                         "id": "[parameters('networkSecurityGroups_sql_server_id_1')]",
-                        "etag": "W/\"32a66630-64e0-45c5-901d-4c4e95951d80\"",
+                        "etag": "W/\"c1b60994-649d-4b2e-b6d1-ac0af695718e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "protocol": "*",
@@ -440,7 +446,7 @@
             "dependsOn": []
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/publicIPAddresses/iis-server' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/publicIPAddresses/iis-server' から一般化されました。",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddresses_iis_server_name')]",
             "apiVersion": "2016-03-30",
@@ -452,7 +458,7 @@
             "dependsOn": []
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/publicIPAddresses/loadbalancer' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/publicIPAddresses/loadbalancer' から一般化されました。",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddresses_loadbalancer_name')]",
             "apiVersion": "2016-03-30",
@@ -464,7 +470,7 @@
             "dependsOn": []
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/publicIPAddresses/sql-server' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/publicIPAddresses/sql-server' から一般化されました。",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddresses_sql_server_name')]",
             "apiVersion": "2016-03-30",
@@ -476,7 +482,7 @@
             "dependsOn": []
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Network/virtualNetworks/private-network' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Network/virtualNetworks/private-network' から一般化されました。",
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[parameters('virtualNetworks_private_network_name')]",
             "apiVersion": "2016-03-30",
@@ -491,41 +497,26 @@
                     {
                         "name": "develop-front",
                         "id": "[parameters('virtualNetworks_private_network_id')]",
-                        "etag": "W/\"3959c698-7da3-4ede-b9bb-8a494a4143e9\"",
+                        "etag": "W/\"aa89a33e-f4d9-467c-9f8f-4382d475bdf2\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "addressPrefix": "192.169.201.0/24",
                             "ipConfigurations": [
                                 {
-                                    "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sql_server679_name')), '/ipConfigurations/ipconfig1')]"
+                                    "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_iis_server79_name')), '/ipConfigurations/ipconfig1')]"
                                 },
                                 {
-                                    "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_iis_server79_name')), '/ipConfigurations/ipconfig1')]"
+                                    "id": "[concat(resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sql_server679_name')), '/ipConfigurations/ipconfig1')]"
                                 }
                             ]
                         }
                     }
                 ]
             },
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sql_server679_name'))]",
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_iis_server79_name'))]"
-            ]
-        },
-        {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Storage/storageAccounts/exportbase1267' から一般化されました。",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccounts_exportbase1267_name')]",
-            "apiVersion": "2015-06-15",
-            "location": "japanwest",
-            "tags": {},
-            "properties": {
-                "accountType": "Standard_LRS"
-            },
             "dependsOn": []
         },
         {
-            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/staging-1/providers/Microsoft.Storage/storageAccounts/exportbase4018' から一般化されました。",
+            "comments": "リソース '/subscriptions/38daead8-5787-4634-b02b-219d6347ab74/resourceGroups/export-base/providers/Microsoft.Storage/storageAccounts/exportbase4018' から一般化されました。",
             "type": "Microsoft.Storage/storageAccounts",
             "name": "[parameters('storageAccounts_exportbase4018_name')]",
             "apiVersion": "2015-06-15",
