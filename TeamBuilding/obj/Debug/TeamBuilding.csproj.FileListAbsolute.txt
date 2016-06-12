@@ -83,6 +83,8 @@ C:\projects\teambuilding\TeamBuilding\bin\ja\Microsoft.Owin.Security.Facebook.re
 C:\projects\teambuilding\TeamBuilding\bin\ja\Microsoft.Owin.Security.Google.resources.dll
 C:\projects\teambuilding\TeamBuilding\bin\ja\Microsoft.Owin.Security.Twitter.resources.dll
 C:\projects\teambuilding\TeamBuilding\bin\ja\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-C:\projects\teambuilding\TeamBuilding\obj\Debug\TeamBuilding.csprojResolveAssemblyReference.cache
 C:\projects\teambuilding\TeamBuilding\obj\Debug\TeamBuilding.dll
 C:\projects\teambuilding\TeamBuilding\obj\Debug\TeamBuilding.pdb
+C:\projects\teambuilding\TeamBuilding\bin\nunit.framework.dll
+C:\projects\teambuilding\TeamBuilding\bin\nunit.framework.xml
+C:\projects\teambuilding\TeamBuilding\obj\Debug\TeamBuilding.csprojResolveAssemblyReference.cache

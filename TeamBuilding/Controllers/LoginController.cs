@@ -9,6 +9,10 @@ namespace TeamBuilding.Controllers
 {
     public class LoginController : Controller
     {
+        public LoginController()
+        {
+        }
+
         /// <summary>
         /// POST: Login
         /// </summary>
