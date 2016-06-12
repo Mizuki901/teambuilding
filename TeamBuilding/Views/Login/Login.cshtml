@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Team Building - Login</title>
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <!-- main CSS -->
+    <link href="~/Content/main.css" rel="stylesheet">
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Page JS -->
+    <script src="~/Scripts/login.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Team Building!</h1>
+        <img src="~/Images/login-title.png" class="img-responsive center-block login-title">
+        <form>
+            <div class="form-group">
+                <label class="control-label" for="inputNickName">ニックネームを入力してください</label>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">@@</span>
+                    <input type="text" class="form-control" id="inputNickName" placeholder="ニックネーム" aria-describedby="sizing-addon1">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-lg center-block"><span class="glyphicon glyphicon-ok" aria-hidden="true">ログイン</span></button>
+        </form>
+    </div>
+</body>
+
+</html>
