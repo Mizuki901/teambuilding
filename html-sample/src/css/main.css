@@ -2,18 +2,31 @@
     max-width: 30%;
 }
 
-.theme-paper {
-    background-color: #fff462;
+.theme-paper-yellow {
+    background-image: linear-gradient(#ffdb4c, #ffcd02);
+}
+
+.theme-paper-green {
+    background-image: linear-gradient(#87fc70, #0bd318);
+}
+
+.theme-paper-blue {
+    background-image: linear-gradient(#52edc7, #5ac8fb);
+}
+
+.theme-paper-purple {
+    background-image: linear-gradient(#ef4db6, #d047ff);
 }
 
 .theme-display-paper {
+    width: 260px;
     height: 160px;
     margin: 8px;
     padding: 4px;
 }
 
 .theme-result-paper {
-    max-width:260px;
+    max-width: 260px;
     height: 160px;
     margin: 8px;
     padding: 4px;
