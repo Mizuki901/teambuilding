@@ -1,0 +1,75 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "availabilitySets_availability_iis_name": {
+            "value": null
+        },
+        "virtualMachines_iis_server_name": {
+            "value": null
+        },
+        "virtualMachines_sql_server_name": {
+            "value": null
+        },
+        "loadBalancers_loadbalancer_name": {
+            "value": null
+        },
+        "networkInterfaces_iis_server79_name": {
+            "value": null
+        },
+        "networkInterfaces_sql_server679_name": {
+            "value": null
+        },
+        "networkSecurityGroups_iis_server_secure_name": {
+            "value": null
+        },
+        "networkSecurityGroups_sql_server_name": {
+            "value": null
+        },
+        "publicIPAddresses_iis_server_name": {
+            "value": null
+        },
+        "publicIPAddresses_loadbalancer_name": {
+            "value": null
+        },
+        "publicIPAddresses_sql_server_name": {
+            "value": null
+        },
+        "virtualNetworks_private_network_name": {
+            "value": null
+        },
+        "storageAccounts_exportbase1267_name": {
+            "value": null
+        },
+        "storageAccounts_exportbase4018_name": {
+            "value": null
+        },
+        "loadBalancers_loadbalancer_id": {
+            "value": null
+        },
+        "loadBalancers_loadbalancer_id_1": {
+            "value": null
+        },
+        "networkInterfaces_iis_server79_id": {
+            "value": null
+        },
+        "networkInterfaces_sql_server679_id": {
+            "value": null
+        },
+        "networkSecurityGroups_iis_server_secure_id": {
+            "value": null
+        },
+        "networkSecurityGroups_iis_server_secure_id_1": {
+            "value": null
+        },
+        "networkSecurityGroups_sql_server_id": {
+            "value": null
+        },
+        "networkSecurityGroups_sql_server_id_1": {
+            "value": null
+        },
+        "virtualNetworks_private_network_id": {
+            "value": null
+        }
+    }
+}
