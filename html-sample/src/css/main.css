@@ -1,0 +1,74 @@
+.login-title {
+    max-width: 30%;
+}
+
+.theme-paper-yellow {
+    background-image: linear-gradient(#ffdb4c, #ffcd02);
+}
+
+.theme-paper-green {
+    background-image: linear-gradient(#87fc70, #0bd318);
+}
+
+.theme-paper-blue {
+    background-image: linear-gradient(#52edc7, #5ac8fb);
+}
+
+.theme-paper-purple {
+    background-image: linear-gradient(#ef4db6, #d047ff);
+}
+
+.theme-display-paper {
+    width: 260px;
+    height: 160px;
+    margin: 8px;
+    padding: 4px;
+}
+
+.theme-result-paper {
+    max-width: 260px;
+    height: 160px;
+    margin: 8px;
+    padding: 4px;
+}
+
+.paper-effect
+{
+  position: relative;
+}
+.paper-effect:before, .paper-effect:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.paper-effect:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+div.toggle-join {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

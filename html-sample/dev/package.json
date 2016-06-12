@@ -1,0 +1,11 @@
+{
+  "name": "teambuilding",
+  "version": "1.0.0",
+  "description": "HTML Sample Source",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "t_fujii",
+  "license": "MIT"
+}

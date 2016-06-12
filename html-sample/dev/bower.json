@@ -1,0 +1,25 @@
+{
+  "name": "teambuilding",
+  "homepage": "https://github.com/hirakawamizuki/teambuilding",
+  "authors": [
+    "t_fujii"
+  ],
+  "description": "HTML Sample Source",
+  "main": "",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "2.2.4"
+  }
+}
