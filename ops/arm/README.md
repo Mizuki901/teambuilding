@@ -4,5 +4,5 @@
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
-この上にかっこいいデプロイボタンが出ます。
-押すとloadblancerとiis用windows serverとsql serverがデプロイされます。
+この上にかっこいいデプロイボタンが出ます。  
+押すとloadbalancerとiis用windows serverとsql serverがデプロイされます。
