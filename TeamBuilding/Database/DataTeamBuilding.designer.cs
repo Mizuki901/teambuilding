@@ -161,6 +161,8 @@ namespace TeamBuilding.Database
 		
 		private string _Content;
 		
+		private string _Color;
+		
     #region 拡張メソッドの定義
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -169,6 +171,8 @@ namespace TeamBuilding.Database
     partial void OnOwnerUserIdChanged();
     partial void OnContentChanging(string value);
     partial void OnContentChanged();
+    partial void OnColorChanging(string value);
+    partial void OnColorChanged();
     #endregion
 		
 		public Theme()
@@ -212,6 +216,26 @@ namespace TeamBuilding.Database
 					this._Content = value;
 					this.SendPropertyChanged("Content");
 					this.OnContentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Color", DbType="varchar(20)", CanBeNull=false)]
+		public string Color
+		{
+			get
+			{
+				return this._Color;
+			}
+			set
+			{
+				if ((this._Color != value))
+				{
+					this.OnColorChanging(value);
+					this.SendPropertyChanging();
+					this._Color = value;
+					this.SendPropertyChanged("Color");
+					this.OnColorChanged();
 				}
 			}
 		}
@@ -282,7 +306,7 @@ namespace TeamBuilding.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThemeId", DbType="Varchar(MAX)", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ThemeId", DbType="Varchar(MAX)", CanBeNull=false)]
 		public string OwnerUserId
 		{
 			get
