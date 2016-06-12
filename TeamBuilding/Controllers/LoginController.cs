@@ -3,46 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TeamBuilding.Models;
 
 namespace TeamBuilding.Controllers
 {
     public class LoginController : Controller
     {
-        public LoginController()
+        // GET: Login
+        public ActionResult Index()
         {
+            return View();
         }
-
-        /// <summary>
-        /// POST: Login
-        /// </summary>
-        public ActionResult ThemeCreate(UserViewModels userViewModels)
+        // GET: Login
+        public ActionResult Login()
         {
-            string name = userViewModels.Name;
-            if (name == "admin")
-            {
-                return RedirectToAction("Result");
-            } else
-            {
-                // To register the name for DB
-
-
-                // To get the all names for DB
-
-
-                return View();
-            }
+            return View();
         }
-
-        /// <summary>
-        /// GET: Login/Result
-        /// </summary>
+        // GET: Login
         public ActionResult Result()
         {
-            // To get all votes from DB
-
-
+            return View();
+        }
+        // GET: Login
+        public ActionResult ThemeCreate()
+        {
             return View();
         }
     }
 }
+
