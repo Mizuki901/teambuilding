@@ -1,0 +1,1 @@
+C:\projects\teambuilding\TeamBuilding.Tests\obj\Debug\TeamBuilding.Tests.csprojResolveAssemblyReference.cache
